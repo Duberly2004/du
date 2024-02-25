@@ -46,10 +46,10 @@ export default function LoginForm() {
       })
      
     function onSubmit(values: z.infer<typeof formSchema>) {
-        if(values.username.trim() !== "carolyn-du"){
+        if(values.username.trim() !== "Carolyn-du"){
             toast.error("El usuario es incorrecto bb 🥰")
         }
-        else if(values.password.trim() !== "carolyn2004"){
+        else if(values.password.trim() !== "Carolyn2004"){
             toast.error("La contraseña es incorrecta bb 🥰")
         }else{
             window.localStorage.setItem("username",values.username)
