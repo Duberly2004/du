@@ -36,7 +36,7 @@ import { useNavigate } from "react-router-dom";
         setTimeout(()=>{
           setOpen(false)
       },
-      47000)
+      52000)
     },[visible,open])
 
     return (
