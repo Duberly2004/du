@@ -46,11 +46,11 @@ export default function LoginForm() {
       })
      
     function onSubmit(values: z.infer<typeof formSchema>) {
-        if(values.username.trim() !== "Carolyn-du"){
-            toast.error("El usuario es incorrecto bb 🥰")
+        if(values.username.trim() !== "orianis"){
+            toast.error("El usuario es incorrecto 🥰")
         }
-        else if(values.password.trim() !== "Carolyn2004"){
-            toast.error("La contraseña es incorrecta bb 🥰")
+        else if(values.password.trim() !== "orianis00"){
+            toast.error("La contraseña es incorrecta 🥰")
         }else{
             window.localStorage.setItem("username",values.username)
             window.localStorage.setItem("password",values.password)
@@ -61,18 +61,16 @@ export default function LoginForm() {
   return (
     <Card className="w-[350px] mx-3 text-center">
         <Toaster richColors position="top-center"/>
-        <a href="https://www.youtube.com/watch?v=2K7ihYwctVM&t=495s" target="_blank"><img src="https://scontent.flim38-1.fna.fbcdn.net/v/t1.6435-9/143114622_5139421002767234_1148416977537645664_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=a-MsU2BIJ-YAX9lJoGZ&_nc_ht=scontent.flim38-1.fna&oh=00_AfC32yOlss591YB79LqmVG3x33M_ATgrRmqcZu1_cI0epA&oe=6630D89F" alt="" /></a>
-        <a  className="underline text-blue-600" href="https://www.facebook.com/Avalos.carolyn">Visita mi perfil</a>
       <CardHeader>
         <CardTitle>
         <div className="text-box">
         <Typewriter
           onInit={typewriter => {
             typewriter
-              .typeString('Hola bella dama ❤️𓍢ִ໋🌷͙֒')
+              .typeString('Hola')
               .pauseFor(2000)
               .deleteAll()
-              .typeString('Ingresa tus datos para entrar!! 💞')
+              .typeString('Ingresa tus datos para entrar!!')
               .start();
           }}
         />

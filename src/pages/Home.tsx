@@ -1,115 +1,56 @@
-import {
-    AlertDialog,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog"
-import Typewriter from 'typewriter-effect';
-
-import img2 from '@/assets/img2.jpeg'
-import naruto from '@/assets/naruto.png'
-import nervius from '@/assets/nervius.jpeg'
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-  export default function Home() {
-    const [visible,setVisible] = useState(false)
-    const [visible2,setVisible2] = useState(false)
-    const [visible3,setVisible3] = useState(false)
-    const [open,setOpen] = useState(true)
-    const navigate = useNavigate()
-    useEffect(()=>{
-        setTimeout(()=>{
-            setVisible(true)
-        },
-        27000)
-        setTimeout(()=>{
-            setVisible2(true)
-        },
-        32000)
-        setTimeout(()=>{
-            setVisible3(true)
-        },
-        44000)
-        setTimeout(()=>{
-          setOpen(false)
-      },
-      52000)
-    },[visible,open])
+import {Button} from "@/components/ui/button";
+import naruto from "@/assets/naruto.png";
+import "./Home.css";
 
-    return (
-        <div>
+export default function Home() {
+  const navigate = useNavigate();
+  const [selectedWord, setSelectedWord] = useState('');
+  const [fontSize, setFontSize] = useState(18);
+  const [showResult, setShowResult] = useState(false);
 
-      <AlertDialog open = {open} onOpenChange={setOpen} >
-        <AlertDialogTrigger asChild>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-            <div className="text-box text-violet-600">
-        <Typewriter
-          onInit={typewriter => {
-            typewriter
-              .typeString('Hola bella dama me da gusto verte ❤️𓍢ִ໋🌷͙֒')
-              .pauseFor(2000)
-              .start();
-          }}
-        />
-      </div>
-            </AlertDialogTitle>
-            <AlertDialogDescription className="flex flex-col">
-            <Typewriter
-          onInit={typewriter => {
-            typewriter
-            .pauseFor(8000)
-              .typeString('¡Holap! Quiero tomar un momento para decirte lo increíblemente agradecido que estoy por cada momento que compartimos juntos.👩‍❤️‍👨🌹')
-              .start();
-          }}
-        />
-        {visible?
-              <img className="w-32 h-32 m-auto" src={img2} alt="img2" />
-        :null}
+  const words = ['Por favor', 'por favor por favor ', 'Lo siento', 'mi vida perdón'];
 
-        <Typewriter
-          onInit={typewriter => {
-            typewriter
-            .pauseFor(29000)
-              .typeString('A veces, eres enojona pero eres tierna jeje. 💗💕')
-              .start();
-          }}
-        />
-        {visible2?
-              <img className="w-32 h-32 m-auto" src={nervius} alt="img2" />
-        :null}
+  const handleNoClick = () => {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    setSelectedWord(words[randomIndex]);
+    setFontSize(currentSize => currentSize + 20);
+  };
 
-<Typewriter
-          onInit={typewriter => {
-            typewriter
-            .pauseFor(38000)
-              .typeString('Cada momento a tu lado, descubro una nueva razón para quererte más. Te quiero mucho💖')
-              .start();
-          }}
-        />
-        {visible3?
-              <img className="w-32 h-32 m-auto" src={naruto} alt="naruto" />
-        :null}
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-        </AlertDialogContent>
-      </AlertDialog>
+  const handleYesClick = () => {
+    setShowResult(true);
+  };
+
+  return (
+    <div>
       <div className="flex gap-2 justify-center items-center flex-col mt-10">
-        <p><span className="text-violet-600">De:</span> Duberly</p>
-        <p><span className="text-violet-600">Para:</span> Carolyn</p>
-        <img className="w-52" src={naruto} alt="" />
-      <Button onClick={()=>{
-          window.localStorage.removeItem("username")
-          navigate("/")
-        }}>Cerrar sesión💖</Button>
+        <p>
+          <span className="text-violet-600">De:</span> Orianis
+        </p>
+        <p>
+          <span className="text-violet-600">Para:</span> Para tí
+        </p>
+        <img className="w-52" src={naruto} alt="Naruto" />
+        <Button onClick={() => { navigate("/"); window.localStorage.removeItem("username"); }}>
+          Cerrar sesión💖
+        </Button>
       </div>
-        </div>
-
-    )
-  }
-  
+      <div className="container">
+        <img
+          src="https://media1.tenor.com/m/zD5PGsh7ngQAAAAC/amor.gif"
+          alt="Amor Gif"
+          className="center-image"
+        />
+        <p className="question">Me perdonas?</p>
+        <button className="btn-green mx-2" onClick={handleYesClick} style={{ display: showResult ? '' : '', fontSize }}>
+          Sí
+        </button>
+        <button className="btn-red" onClick={handleNoClick}>
+          {selectedWord || 'No'}
+        </button>
+        {showResult && <div className="result-text">Gracias amor, Te amo ❤️</div>}
+      </div>
+    </div>
+  );
+}

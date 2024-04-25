@@ -1,0 +1,45 @@
+body{
+    background: radial-gradient(#b56262, transparent);
+}
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.center-image {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.question {
+  font-size: 30px;
+  color: burlywood;
+  font-weight: bold;
+}
+
+.btn-green, .btn-red {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-green {
+  background-color: green;
+  color: white;
+}
+
+.btn-red {
+  background-color: red;
+  color: white;
+}
+
+.result-text {
+  text-align: center;
+  display: none;
+  margin-top: 50px;
+  font-size: 24px;
+}
