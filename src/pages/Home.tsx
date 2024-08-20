@@ -100,8 +100,8 @@ import { useNavigate } from "react-router-dom";
         </AlertDialogContent>
       </AlertDialog>
       <div className="flex gap-2 justify-center items-center flex-col mt-10">
-        <p><span className="text-violet-600">De:</span> Duberly</p>
-        <p><span className="text-violet-600">Para:</span> Carolyn</p>
+        <p><span className="text-violet-600">De:</span> Du</p>
+        <p><span className="text-violet-600">Para:</span> Ana mogola 💖</p>
         <img className="w-52" src={naruto} alt="" />
       <Button onClick={()=>{
           window.localStorage.removeItem("username")
