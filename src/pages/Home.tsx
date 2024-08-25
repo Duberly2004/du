@@ -57,7 +57,7 @@ export default function Home() {
           Se encontraron coincidencias con la búsqueda
         </h2>
         <p className="text-lg font-medium text-gray-700 mb-1">
-          Resultados para emoción: <span className="text-blue-600">{user.emotion}</span>
+          Resultados para: <span className="text-blue-600">{user.emotion}</span>
         </p>
         <p className="text-lg text-gray-600 mb-4">Nombre: <span className="text-blue-600">{user.name}</span></p>
         <img
